@@ -13,7 +13,6 @@ def model(dbt, session):
             )).agg([min(date_trunc('MONTH', 'start_date')).alias('date_month_start'),
                    max(date_trunc('MONTH', 'end_date')).alias('date_month_end')])
 
-    
     # create one record per month between a customer's first and last month
     # (example of a date spine)
     df_cust_months = df_customers.join(df_months,
